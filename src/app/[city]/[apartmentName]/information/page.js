@@ -1,8 +1,8 @@
 "use client"
 import {motion} from "framer-motion";
 import {useState} from "react";
-import InformationPageHeader from "@/components/pages/inofrmationPage/cards/InformationPageHeader";
-import InformationPageDetails from "@/components/pages/inofrmationPage/cards/InformationPageDetails";
+import InformationPageHeader from "@/components/pages/inofrmationPage/InformationPageHeader";
+import InformationPageDetails from "@/components/pages/inofrmationPage/InformationPageDetails";
 import HouseCard from "@/components/pages/inofrmationPage/cards/HouseCard";
 import AnimalsCard from "@/components/pages/inofrmationPage/cards/AnimalsCard";
 import {Rule} from "postcss";
@@ -78,7 +78,7 @@ export default function InformationPage() {
                 className={"bg-neutral-200 max-md:px-10 px-20 w-screen rounded-t-xl z-10 h-[60%] justify-between "}>
                 <div className={isOpen ? "hidden" : ""}>
                     <InformationPageDetails/>
-                    <div className={"gap-4 grid grid-cols-3"}>
+                    <div className={"max-md:gap-2 gap-4 grid grid-cols-3"}>
                         <HouseCard houseHandle={houseHandle}/>
                         <AnimalsCard animalsHandle={animalsHandle}/>
                         <RulesCard rulesHandle={rulesHandle}/>

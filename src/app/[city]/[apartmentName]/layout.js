@@ -12,7 +12,7 @@ export default function RootLayout({children}) {
     return (
         <html lang="en">
         <body className={inter.className}>
-        <main className="bg-[url('/paris-bg.jpg')] bg-cover h-[100vh] ">
+        <main className="bg-[url('/paris-bg.jpg')] bg-cover h-screen ">
             {children}
         </main>
         </body>
