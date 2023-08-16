@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export default function ServicesCard({servicesHandle}) {
+export default function ServicesCard({servicesHandle,services}) {
 
     return (
         <div
@@ -9,7 +9,7 @@ export default function ServicesCard({servicesHandle}) {
             <img className={"mx-auto my-0"} width="64" height="64"
                  src="https://img.icons8.com/dusk/64/service-bell.png"
                  alt="service-bell"/>
-            <p className={"text-center max-md:mt-1 mt-2.5"}>On-site Services</p>
+            <p className={"text-center max-md:mt-1 mt-2.5"}>{services}</p>
 
         </div>
     )

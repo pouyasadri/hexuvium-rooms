@@ -1,0 +1,58 @@
+{
+  "index": {
+    "wifi": "Code de Wifi",
+    "keys": "clés",
+    "location": "localisation",
+    "arrival": "Informations d'arrivée",
+    "departure": "Informations de départ",
+    "phone": "Numéros de téléphone utiles",
+    "info": "Informations générales"
+  },
+  "wifiPage": {
+    "title": "Code Wi-Fi",
+    "details": "<p className={'text-center font-normal max-md:py-1 py-2'}>Se connecter au Wifi</p><p>Aller à :<span className={'font-bold underline '}>Réglage - Wi-Fi</span></p>",
+    "name": "Nom Wi-Fi",
+    "key": "Mot de passe WiFi",
+    "copy": "Copie",
+    "copied": "Copié"
+  },
+  "keysPage": {
+    "title": "Clés",
+    "details": "Retrouvez ici les différents digicodes",
+    "information": "Information"
+  },
+  "locationPage": {
+    "title": "localisation",
+    "details": "Trouvez votre chambre facilement",
+    "address": "Adresse",
+    "find": "Trouvez votre chambre"
+  },
+  "arrivalPage": {
+    "title": "Informations d'arrivée",
+    "details": "Retrouvez toutes les informations pratiques pour votre arrivée",
+    "arrivalTime": "Créneau horaire d'arrivée",
+    "internal": "Règlement intérieur"
+  },
+  "departurePage": {
+    "title": "Informations de départ",
+    "details": "Retrouvez toutes les informations pratiques pour votre départ",
+    "departureTime": "Créneau horaire de départ",
+    "problem": "Signaler un problème"
+  },
+  "phoneNumberPage": {
+    "title": "Numéro de téléphone utile",
+    "emergencyNumber": "Numéros d'urgence",
+    "police": "Police",
+    "firefighter": "Pompier",
+    "emergency": "Urgence",
+    "reception": "Réception"
+  },
+  "informationPage": {
+    "title": "Informations pratiques",
+    "details": "Retrouvez toutes les informations pratiques",
+    "animals": "Animaux",
+    "garbage": "Ordures",
+    "parking": "Parking",
+    "services": "Prestations sur site"
+  }
+}

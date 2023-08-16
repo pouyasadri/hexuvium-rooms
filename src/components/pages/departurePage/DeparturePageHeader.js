@@ -1,4 +1,4 @@
-export default function DeparturePageHeader() {
+export default function DeparturePageHeader({title}) {
     return (
         <div className={"mt-20"}>
             <div className={"text-neutral-200 inline-flex px-2 py-4 bg-blue-200 bg-opacity-20 rounded-xl"}>
@@ -10,7 +10,7 @@ export default function DeparturePageHeader() {
                     <path
                         d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.646a.5.5 0 0 1 .708.707l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.707l.647-.647-.647-.646a.5.5 0 0 1 .708-.707Z"/>
                 </svg>
-                <h2 className={"text-2xl p-4"}>Departure Information</h2>
+                <h2 className={"text-2xl p-4"}>{title}</h2>
             </div>
 
         </div>

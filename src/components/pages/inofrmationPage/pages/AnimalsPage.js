@@ -1,10 +1,10 @@
-export default function AnimalsPage({isAnimals}) {
+export default function AnimalsPage({isAnimals,animals}) {
     return (
         <div className={isAnimals === false ? "hidden" : ""}>
-            <div className={"flex justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
+            <div className={" justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
                 <img className={"mx-auto my-0"} width="64" height="64"
                      src="https://img.icons8.com/dusk/64/pets.png" alt="pets"/>
-                <p className={"text-center text-neutral-600"}>Animal Information</p>
+                <p className={"text-center text-neutral-600"}>{animals}</p>
             </div>
             <p className={"my-5 text-xl font-light"}>Information:</p>
             <div

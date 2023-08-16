@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export default function GarbageCard({garbageHandle}) {
+export default function GarbageCard({garbageHandle,garbage}) {
 
     return (
         <div
@@ -9,7 +9,7 @@ export default function GarbageCard({garbageHandle}) {
             <img className={"mx-auto my-0"} width="64" height="64"
                  src="https://img.icons8.com/dusk/64/recycle-bin.png"
                  alt="recycle-bin"/>
-            <p className={"text-center max-md:mt-1 mt-2.5"}>Garbage</p>
+            <p className={"text-center max-md:mt-1 mt-2.5"}>{garbage}</p>
         </div>
     )
 }

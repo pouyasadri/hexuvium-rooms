@@ -1,11 +1,11 @@
-export default function ArrivalPage({isArrival}) {
+export default function ArrivalPage({isArrival, arrivalTime}) {
     return (
         <div className={isArrival === false ? "hidden" : ""}>
-            <div className={"flex justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
+            <div className={"justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
                 <img width="64" className={"mx-auto my-0"} height="64"
                      src="https://img.icons8.com/dusk/64/realtime-protection.png"
                      alt="realtime-protection"/>
-                <p className={"text-center text-neutral-600"}>Arrival time</p>
+                <p className={"text-center text-neutral-600"}>{arrivalTime}</p>
             </div>
             <p className={"my-5 text-xl font-light"}>Information:</p>
             <div

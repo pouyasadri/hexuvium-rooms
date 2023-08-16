@@ -1,0 +1,58 @@
+{
+  "index": {
+    "wifi": "Wifi Code",
+    "keys": "Keys",
+    "location": "Location",
+    "arrival": "Arrival Info",
+    "departure": "Departure Info",
+    "phone": "Useful Phone Numbers",
+    "info": "General Information"
+  },
+  "wifiPage": {
+    "title": "Wifi Code",
+    "details": "<p className={'text-center font-normal max-md:py-1 py-2'}>To connect to Wifi</p><p>Go to : <span className={'font-bold underline '}> Setting - Wifi</span></p>",
+    "name": "Wifi Name",
+    "key": "Wifi Password",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "keysPage": {
+    "title": "Keys",
+    "details": "Find here the different digi codes",
+    "doorCode": "Door Code"
+  },
+  "locationPage": {
+    "title": "Location",
+    "details": "Find your room easily",
+    "address": "Address",
+    "find": "Find your room"
+  },
+  "arrivalPage": {
+    "title": "Arrival Information",
+    "details": "Find all the practical information for your arrival",
+    "arrivalTime": "Arrival Time Slot",
+    "internal": "Internal Regulation"
+  },
+  "departurePage": {
+    "title": "Departure Information",
+    "details": "Find all the practical information for your departure",
+    "departureTime": "Departure Time Slot",
+    "problem": "Report a Problem"
+  },
+  "phoneNumberPage": {
+    "title": "Useful Phone Number",
+    "emergencyNumber": "Emergency Numbers",
+    "police": "Police",
+    "firefighter": "Firefighter",
+    "emergency": "Emergency",
+    "reception": "Reception"
+  },
+  "informationPage": {
+    "title": "Practical information",
+    "details": "Find all the practical information",
+    "animals": "Animals",
+    "garbage": "Garbage",
+    "parking": "Parking",
+    "services": "On-site Services"
+  }
+}

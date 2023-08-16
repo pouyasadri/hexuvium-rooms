@@ -1,9 +1,10 @@
-export default function ProblemPage({isProblem}) {
+export default function ProblemPage({isProblem, problem}) {
     return (
         <div className={isProblem === false ? "hidden" : ""}>
-            <div className={"flex justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
-                <img width="64" height="64" src="https://img.icons8.com/dusk/64/error.png" alt="error"/>
-                <p className={"text-center text-neutral-600"}>Problem report</p>
+            <div className={"justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
+                <img width="64" className={"my-0 mx-auto"} height="64" src="https://img.icons8.com/dusk/64/error.png"
+                     alt="error"/>
+                <p className={"text-center text-neutral-600"}>{problem}</p>
             </div>
             <p className={"my-5 text-xl font-light"}>Information:</p>
             <div

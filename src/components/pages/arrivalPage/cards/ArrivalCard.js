@@ -1,4 +1,4 @@
-export default function ArrivalCard({arrivalHandle}) {
+export default function ArrivalCard({arrivalHandle,arrivalTime}) {
     return (
         <div
             onClick={arrivalHandle}
@@ -6,7 +6,7 @@ export default function ArrivalCard({arrivalHandle}) {
             <img width="64" className={"mx-auto my-0"} height="64"
                  src="https://img.icons8.com/dusk/64/realtime-protection.png"
                  alt="realtime-protection"/>
-            <p className={"text-center max-md:mt-1 mt-2.5"}>Arrival Time Slot</p>
+            <p className={"text-center max-md:mt-1 mt-2.5"}>{arrivalTime}</p>
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function Reception() {
+export default function Reception({reception}) {
     return (
         <>
-            <p className={"text-neutral-700 font-semibold mb-5 max-md:mb-2"}>Reception:</p>
+            <p className={"text-neutral-700 font-semibold mb-5 max-md:mb-2"}>{reception}</p>
             <div
                 className={"rounded-xl bg-white shadow-inner p-4 mb-5"}>
                 <Link href={"tel:+33768411196"}>

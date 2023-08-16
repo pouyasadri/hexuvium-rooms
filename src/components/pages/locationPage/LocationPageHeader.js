@@ -1,4 +1,4 @@
-export default function LocationPageHeader() {
+export default function LocationPageHeader({title}) {
     return (
         <div className={"mt-20"}>
             <div className={"text-neutral-200 inline-flex px-2 py-4 bg-blue-200 bg-opacity-20 rounded-xl"}>
@@ -11,7 +11,7 @@ export default function LocationPageHeader() {
                           d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
                 </svg>
 
-                <h2 className={"text-2xl p-4"}>Location</h2>
+                <h2 className={"text-2xl p-4"}>{title}</h2>
             </div>
 
         </div>

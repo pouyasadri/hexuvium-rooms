@@ -1,7 +1,7 @@
-export default function Map() {
+export default function Map({find}) {
     return (
         <>
-            <p className={"text-neutral-700 font-semibold max-md:mb-2.5 mb-5"}>On the map:</p>
+            <p className={"text-neutral-700 font-semibold max-md:mb-2.5 mb-5"}>{find}</p>
             <div
                 className={"rounded-xl bg-white shadow-inner max-md:p-2 max-md:mb-2.5 p-4 mb-5"}>
                 <div className={"bg-neutral-200 bg-opacity-50 max-md:my-1 max-md:mx-5 my-2 mx-10 rounded h-[100%]"}>

@@ -1,4 +1,4 @@
-export default function InformationPageHeader() {
+export default function InformationPageHeader({title}) {
     return (
         <div className={"mt-20"}>
             <div className={"text-neutral-200 inline-flex px-2 py-4 bg-blue-200 bg-opacity-20 rounded-xl"}>
@@ -9,7 +9,7 @@ export default function InformationPageHeader() {
                     <path
                         d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                 </svg>
-                <h2 className={"text-2xl p-4"}>Practical information</h2>
+                <h2 className={"text-2xl p-4"}>{title}</h2>
             </div>
 
         </div>
