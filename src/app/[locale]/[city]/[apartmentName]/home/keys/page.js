@@ -5,8 +5,49 @@ import DigiCodePageDetails from "@/components/pages/digiCodePage/DigiCodePageDet
 import KeyPageInfo from "@/components/pages/digiCodePage/KeyPageInfo";
 import BackButton from "@/components/BackButton";
 import {useTranslations} from "next-intl";
+import {useParams} from "next/navigation";
+import {useEffect, useState} from "react";
+import {groq} from "next-sanity";
+import {client} from "../../../../../../../sanity/lib/client";
+import {PortableText} from "@portabletext/react";
 
 export default function DigiCodePage() {
+    const params = useParams()
+    const [data, setData] = useState(null);
+    const apartmentName = params.apartmentName;
+    useEffect(() => {
+        const fetchData = async () => {
+            const query = groq`
+        *[_type == "apartment" && name == $apartmentName][0] {
+          keys
+        }
+      `;
+
+            try {
+                const result = await client.fetch(query, {apartmentName: apartmentName});
+                console.log(result);
+                const {keys} = result
+                // Log fetched data
+                let keyData;
+                switch (params.locale) {
+                    case "fr":
+                        keyData = keys.fr;
+                        break;
+                    case "en":
+                        keyData = keys.en;
+                        break;
+                    case "zh":
+                        keyData = keys.zh;
+                        break;
+                }
+                setData(keyData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData(); // Invoke the fetchData function
+    }, [apartmentName]); // Add apartmentName to the dependency array
+
     const t = useTranslations('keysPage');
     return (
         <div className={"backdrop-blur-sm"}>
@@ -32,7 +73,7 @@ export default function DigiCodePage() {
                     }}
                     className={"bg-neutral-200 px-20 w-screen rounded-t-xl z-10 h-[60%] "}>
                     <DigiCodePageDetails details={t('details')}/>
-                    <KeyPageInfo info={t('information')}/>
+                    <KeyPageInfo info={t('information')} text={data}/>
                 </motion.div>
 
             </div>

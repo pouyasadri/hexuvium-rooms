@@ -1,4 +1,6 @@
-export default function ProblemPage({isProblem, problem}) {
+import {PortableText} from "@portabletext/react";
+
+export default function ProblemPage({isProblem, problem,text}) {
     return (
         <div className={isProblem === false ? "hidden" : ""}>
             <div className={"justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
@@ -9,8 +11,9 @@ export default function ProblemPage({isProblem, problem}) {
             <p className={"my-5 text-xl font-light"}>Information:</p>
             <div
                 className={"rounded-xl bg-white shadow-inner p-4 mb-5"}>
-                <p className={"text-center p-5 bg-g font-bold"}>Do not hesitate to contact us if you have any problem.
-                    The reception is reachable at: 0505050505.</p>
+                <p className={"text-center p-5"}>
+                    <PortableText  value={text}/>
+                </p>
             </div>
         </div>
     )

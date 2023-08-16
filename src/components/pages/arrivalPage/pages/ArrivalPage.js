@@ -1,4 +1,10 @@
-export default function ArrivalPage({isArrival, arrivalTime}) {
+import {useParams} from "next/navigation";
+import {useEffect, useState} from "react";
+import {groq} from "next-sanity";
+import {client} from "../../../../../sanity/lib/client";
+import {PortableText} from "@portabletext/react";
+
+export default function ArrivalPage({isArrival, arrivalTime,text}) {
     return (
         <div className={isArrival === false ? "hidden" : ""}>
             <div className={"justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
@@ -10,7 +16,9 @@ export default function ArrivalPage({isArrival, arrivalTime}) {
             <p className={"my-5 text-xl font-light"}>Information:</p>
             <div
                 className={"rounded-xl bg-white shadow-inner p-4 mb-5"}>
-                <p className={"text-center p-5 bg-g font-bold"}>The check-in time is from 2pm.</p>
+                <p className={"text-center p-5"}>
+                    <PortableText  value={text}/>
+                </p>
             </div>
         </div>
     )

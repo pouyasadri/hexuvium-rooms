@@ -1,4 +1,6 @@
-export default function ParkingPage({isParking,parking}) {
+import {PortableText} from "@portabletext/react";
+
+export default function ParkingPage({isParking,parking,text}) {
     return (
         <div className={isParking === false ? "hidden" : ""}>
             <div className={" justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
@@ -9,8 +11,9 @@ export default function ParkingPage({isParking,parking}) {
             <p className={"my-5 text-xl font-light"}>Information:</p>
             <div
                 className={"rounded-xl bg-white shadow-inner p-4 mb-5"}>
-                <p className={"text-center p-5 bg-g font-bold"}>Free parking is available upon reservation.</p>
-
+                <p className={"text-center p-5"}>
+                    <PortableText  value={text}/>
+                </p>
             </div>
         </div>
     )

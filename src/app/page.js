@@ -1,7 +1,7 @@
 "use client"
 import {motion} from "framer-motion";
 
-export default function Home() {
+export default function Home_() {
     return (
         <main className="bg-[url('/paris-bg.jpg')] bg-cover h-[100vh] ">
             <div className="h-screen grid items-center justify-center place-items-center backdrop-blur-sm">

@@ -48,7 +48,7 @@ export default function Home({params}) {
                             </AnimatePresence>
                         </div>
                     </Link>
-                    <Link href={"/zh/" + params.city + "/" + params.apartmentName + "/home"}>
+                    {/*<Link href={"/zh/" + params.city + "/" + params.apartmentName + "/home"}>*/}
                         <div className="gap-1 m-5">
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -66,7 +66,7 @@ export default function Home({params}) {
                                 </motion.div>
                             </AnimatePresence>
                         </div>
-                    </Link>
+                    {/*</Link>*/}
                 </div>
             </div>
         </main>

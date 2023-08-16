@@ -7,6 +7,11 @@ export default {
     title: "Appartement",
     fields: [
         {
+            name: "name",
+            type: "string",
+            title: "title",
+        },
+        {
             name: "aprtName",
             type: "localeString",
             title: "Nome de Appartement",
@@ -32,9 +37,9 @@ export default {
             ]
         },
         {
-            name: "digiCode",
-            type: "string",
-            title: "Digi Code"
+            name: "keys",
+            type: "localeBlock",
+            title: "cles"
         },
         {
             name: "address",

@@ -8,10 +8,34 @@ import Emergencies from "@/components/pages/phoneNumberPage/Emergencies";
 import Reception from "@/components/pages/phoneNumberPage/Reception";
 import BackButton from "@/components/BackButton";
 import {useTranslations} from "next-intl";
+import {useParams} from "next/navigation";
+import {useEffect, useState} from "react";
+import {groq} from "next-sanity";
+import {client} from "../../../../../../../sanity/lib/client";
 
 export default function PhoneNumberPage() {
     const t = useTranslations('phoneNumberPage');
+    const params = useParams()
+    const [data, setData] = useState(null);
+    const apartmentName = params.apartmentName;
+    useEffect(() => {
+        const fetchData = async () => {
+            const query = groq`
+        *[_type == "apartment" && name == $apartmentName][0] {
+          receptionPhone
+        }
+      `;
 
+            try {
+                const result = await client.fetch(query, {apartmentName: apartmentName});
+                const {receptionPhone} = result
+                setData(receptionPhone);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData(); // Invoke the fetchData function
+    }, [apartmentName]); // A
     return (
         <div className={"backdrop-blur-sm"}>
             <BackButton/>
@@ -42,7 +66,7 @@ export default function PhoneNumberPage() {
                         <Firefighter firefighter={t('firefighter')}/>
                         <Emergencies emergency={t('emergency')}/>
                     </div>
-                    <Reception reception={t('reception')}/>
+                    <Reception reception={t('reception')} tel={data}/>
                 </motion.div>
 
             </div>

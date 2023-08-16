@@ -1,4 +1,6 @@
-export default function GarbagePage({isGarbage,garbage}) {
+import {PortableText} from "@portabletext/react";
+
+export default function GarbagePage({isGarbage,garbage,text}) {
     return (
         <div className={isGarbage === false ? "hidden" : ""}>
             <div className={" justify-center items-center p-3 gap-5 mt-4 bg-blue-300 bg-opacity-40 rounded"}>
@@ -10,8 +12,9 @@ export default function GarbagePage({isGarbage,garbage}) {
             <p className={"my-5 text-xl font-light"}>Information:</p>
             <div
                 className={"rounded-xl bg-white shadow-inner p-4 mb-5"}>
-                <p className={"text-center p-5 bg-g font-bold"}>The garbage room is located on the ground floor.</p>
-
+                <p className={"text-center p-5"}>
+                    <PortableText  value={text}/>
+                </p>
             </div>
         </div>
     )

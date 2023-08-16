@@ -14,7 +14,7 @@ export default function PhoneNumbers({title}) {
 
                     </div>
                 </div>
-                <p className="text-neutral-200 text-center">{title}</p>
+                <p className="text-neutral-200 max-md:text-sm text-center">{title}</p>
 
             </div>
         </div>

@@ -1,24 +1,22 @@
 "use client"
 import {motion} from "framer-motion";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import InformationPageHeader from "@/components/pages/inofrmationPage/InformationPageHeader";
 import InformationPageDetails from "@/components/pages/inofrmationPage/InformationPageDetails";
-import HouseCard from "@/components/pages/inofrmationPage/cards/HouseCard";
 import AnimalsCard from "@/components/pages/inofrmationPage/cards/AnimalsCard";
-import {Rule} from "postcss";
-import RulesCard from "@/components/pages/inofrmationPage/cards/RulesCard";
 import GarbageCard from "@/components/pages/inofrmationPage/cards/GarbageCard";
 import ParkingCard from "@/components/pages/inofrmationPage/cards/ParkingCard";
 import ServicesCard from "@/components/pages/inofrmationPage/cards/ServicesCard";
-import HousePage from "@/components/pages/inofrmationPage/pages/HousePage";
 import AnimalsPage from "@/components/pages/inofrmationPage/pages/AnimalsPage";
-import RulesPage from "@/components/pages/inofrmationPage/pages/RulesPage";
 import GarbagePage from "@/components/pages/inofrmationPage/pages/GarbagePage";
 import ParkingPage from "@/components/pages/inofrmationPage/pages/ParkingPage";
 import ServicePage from "@/components/pages/inofrmationPage/pages/ServicePage";
 import BackButton from "@/components/BackButton";
 import CardsBackButton from "@/components/CardsBackButton";
 import {useTranslations} from "next-intl";
+import {useParams} from "next/navigation";
+import {groq} from "next-sanity";
+import {client} from "../../../../../../../sanity/lib/client";
 
 export default function InformationPage() {
     const [isAnimals, setAnimals] = useState(false);
@@ -55,7 +53,88 @@ export default function InformationPage() {
         setOpen(false);
     }
     const t = useTranslations('informationPage');
+    const params = useParams()
+    const [animalsRules, setAnimalsRules] = useState(null);
+    const [garbageRules, setGarbageRules] = useState(null);
+    const [parkingRules, setParkingRules] = useState(null);
+    const [servicesRules, setServicesRules] = useState(null);
 
+    const apartmentName = params.apartmentName;
+    useEffect(() => {
+        const fetchData = async () => {
+            const query = groq`
+        *[_type == "apartment" && name == $apartmentName][0] {
+          information
+        }
+      `;
+
+            try {
+                const result = await client.fetch(query, {apartmentName: apartmentName});
+                console.log(result['information']);
+                const {information: {animalRules}} = result;
+                const {information: {garbage}} = result;
+                const {information: {parking}} = result;
+                const {information: {service}} = result;
+                let animals;
+                switch (params.locale) {
+                    case "fr":
+                        animals = animalRules.fr;
+                        break;
+                    case "en":
+                        animals = animalRules.en;
+                        break;
+                    case "zh":
+                        animals = animalRules.zh;
+                        break;
+                }
+                setAnimalsRules(animals);
+                let garbageRule;
+                switch (params.locale) {
+                    case "fr":
+                        garbageRule = garbage.fr;
+                        break;
+                    case "en":
+                        garbageRule = garbage.en;
+                        break;
+                    case "zh":
+                        garbageRule = garbage.zh;
+                        break;
+                }
+                setGarbageRules(garbageRule);
+
+
+                let serviceRule;
+                switch (params.locale) {
+                    case "fr":
+                        serviceRule = service.fr;
+                        break;
+                    case "en":
+                        serviceRule = service.en;
+                        break;
+                    case "zh":
+                        serviceRule = service.zh;
+                        break;
+                }
+                setServicesRules(serviceRule);
+                let parkingRule;
+                switch (params.locale) {
+                    case "fr":
+                        parkingRule = parking.fr;
+                        break;
+                    case "en":
+                        parkingRule = parking.en;
+                        break;
+                    case "zh":
+                        parkingRule = parking.zh;
+                        break;
+                }
+                setParkingRules(parkingRule);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData(); // Invoke the fetchData function
+    }, [apartmentName]);
     return (
         <div className={"backdrop-blur-sm"}>
             {!isOpen && <BackButton/>}
@@ -90,10 +169,10 @@ export default function InformationPage() {
                             <ServicesCard servicesHandle={servicesHandle} services={t('services')}/>
                         </div>
                     </div>
-                    <AnimalsPage isAnimals={isAnimals} animals={t('animals')}/>
-                    <GarbagePage isGarbage={isGarbage} garbage={t('garbage')}/>
-                    <ParkingPage isParking={isParking} parking={t('parking')}/>
-                    <ServicePage isService={isService} services={t('services')}/>
+                    <AnimalsPage isAnimals={isAnimals} animals={t('animals')} text={animalsRules}/>
+                    <GarbagePage isGarbage={isGarbage} garbage={t('garbage')} text={garbageRules}/>
+                    <ParkingPage isParking={isParking} parking={t('parking')} text={parkingRules}/>
+                    <ServicePage isService={isService} services={t('services')} text={servicesRules}/>
                 </motion.div>
 
             </div>

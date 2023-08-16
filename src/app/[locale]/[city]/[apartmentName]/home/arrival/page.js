@@ -2,18 +2,17 @@
 import {motion} from "framer-motion";
 import ArrivalPageHeader from "@/components/pages/arrivalPage/ArrivalPageHeader";
 import ArrivalPageDetails from "@/components/pages/arrivalPage/arrivalPageDetails";
-import {useState} from "react";
-import RecallCard from "@/components/pages/arrivalPage/cards/RecallCard";
+import {useEffect, useState} from "react";
 import ArrivalCard from "@/components/pages/arrivalPage/cards/ArrivalCard";
 import InternalCard from "@/components/pages/arrivalPage/cards/internalCard";
-import KeysCard from "@/components/pages/arrivalPage/cards/KeysCard";
-import RecallPage from "@/components/pages/arrivalPage/pages/RecallPage";
 import ArrivalPage from "@/components/pages/arrivalPage/pages/ArrivalPage";
 import InternalPage from "@/components/pages/arrivalPage/pages/InternalPage";
-import KeysPage from "@/components/pages/arrivalPage/pages/KeysPage";
 import BackButton from "@/components/BackButton";
 import CardsBackButton from "@/components/CardsBackButton";
 import {useTranslations} from "next-intl";
+import {useParams} from "next/navigation";
+import {groq} from "next-sanity";
+import {client} from "../../../../../../../sanity/lib/client";
 
 export default function ArrivalOriginalPage() {
     const [isArrival, setArrival] = useState(false);
@@ -37,6 +36,55 @@ export default function ArrivalOriginalPage() {
         setInternal(false);
         setOpen(false);
     }
+    const params = useParams()
+    const [internalRules, setInternalRules] = useState(null);
+    const [arrivalTime, setArrivalTime] = useState(null);
+
+    const apartmentName = params.apartmentName;
+    useEffect(() => {
+        const fetchData = async () => {
+            const query = groq`
+        *[_type == "apartment" && name == $apartmentName][0] {
+          arrivalInformation
+        }
+      `;
+
+            try {
+                const result = await client.fetch(query, {apartmentName: apartmentName});
+                const {arrivalInformation: {arrivalTime}} = result;
+                const {arrivalInformation: {internalRules}} = result;
+                let time;
+                switch (params.locale) {
+                    case "fr":
+                        time = arrivalTime.fr;
+                        break;
+                    case "en":
+                        time = arrivalTime.en;
+                        break;
+                    case "zh":
+                        time = arrivalTime.zh;
+                        break;
+                }
+                setArrivalTime(time);
+                let rules;
+                switch (params.locale) {
+                    case "fr":
+                        rules = internalRules.fr;
+                        break;
+                    case "en":
+                        rules = internalRules.en;
+                        break;
+                    case "zh":
+                        rules = internalRules.zh;
+                        break;
+                }
+                setInternalRules(rules);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData(); // Invoke the fetchData function
+    }, [apartmentName]);
     return (
         <div className={"backdrop-blur-sm"}>
             {!isOpen && <BackButton/>}
@@ -68,8 +116,8 @@ export default function ArrivalOriginalPage() {
                             <InternalCard internalHandle={internalHandle} internal={t('internal')}/>
                         </div>
                     </div>
-                    <ArrivalPage isArrival={isArrival} arrivalTime={t('arrivalTime')}/>
-                    <InternalPage isInternal={isInternal} internal={t('internal')}/>
+                    <ArrivalPage isArrival={isArrival} arrivalTime={t('arrivalTime')} text={arrivalTime}/>
+                    <InternalPage isInternal={isInternal} internal={t('internal')} text={internalRules}/>
                 </motion.div>
 
             </div>
