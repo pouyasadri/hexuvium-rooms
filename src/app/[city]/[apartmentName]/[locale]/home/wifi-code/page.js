@@ -9,7 +9,7 @@ import {useTranslations} from "next-intl";
 import {useEffect, useState} from "react";
 import {groq} from "next-sanity";
 import {client} from "../../../../../../../sanity/lib/client";
-import {useParams, useRouter} from "next/navigation";
+import {useParams} from "next/navigation";
 
 export default function WifiPage() {
     const params = useParams()
@@ -66,7 +66,7 @@ export default function WifiPage() {
                     className={"bg-neutral-200 px-20 w-screen rounded-t-xl z-10 h-[60%] "}>
                     <WifiDetails details={t.raw('details')}/>
                     <WifiName wifiName={t('name')} name={wifiName}/>
-                    <WifiKey copy={t('copy')} copied={t('copied')} password={wifiPassword}/>
+                    <WifiKey copy={t('copy')} copied={t('copied')} password={t('key')} text={wifiPassword}/>
                 </motion.div>
 
             </div>

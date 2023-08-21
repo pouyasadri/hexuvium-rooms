@@ -7,6 +7,11 @@ export default {
     title: "Ville",
     fields: [
         {
+            name: "name",
+            type: "string",
+            title: "title",
+        },
+        {
             name: "cityName",
             type: "localeString",
             title: "Nome de ville",

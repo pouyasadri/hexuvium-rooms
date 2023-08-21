@@ -26,10 +26,6 @@ export default async function RootLayout({children, params: {locale}}) {
         <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={language}>
             <main className="bg-[url('/paris-bg.jpg')] bg-cover h-screen ">
-
-
-
-
                 {children}
             </main>
         </NextIntlClientProvider>

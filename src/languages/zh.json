@@ -1,0 +1,58 @@
+{
+  "index": {
+    "wifi": "无线网络",
+    "keys": "钥匙",
+    "location": "位置",
+    "arrival": "抵达信息",
+    "departure": "离开信息",
+    "phone": "有用电话号码",
+    "info": "一般信息"
+  },
+  "wifiPage": {
+    "title": "无线网络",
+    "details": "<p className={'text-center font-normal max-md:py-1 py-2'}>连接无线网络</p><p>前往：<span className={'font-bold underline '}>设置 - 无线网络</span></p>",
+    "name": "无线网络名称",
+    "key": "无线网络密码",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "keysPage": {
+    "title": "钥匙",
+    "details": "在这里找到不同的数字代码",
+    "information": "信息"
+  },
+  "locationPage": {
+    "title": "位置",
+    "details": "轻松找到您的房间",
+    "address": "地址",
+    "find": "寻找您的房间"
+  },
+  "arrivalPage": {
+    "title": "抵达信息",
+    "details": "查找您抵达的所有实用信息",
+    "arrivalTime": "抵达时间段",
+    "internal": "内部规定"
+  },
+  "departurePage": {
+    "title": "离开信息",
+    "details": "查找您离开的所有实用信息",
+    "departureTime": "离开时间段",
+    "problem": "报告问题"
+  },
+  "phoneNumberPage": {
+    "title": "有用电话号码",
+    "emergencyNumber": "紧急电话号码",
+    "police": "警察",
+    "firefighter": "消防员",
+    "emergency": "紧急",
+    "reception": "接待处"
+  },
+  "informationPage": {
+    "title": "实用信息",
+    "details": "查找所有实用信息",
+    "animals": "动物",
+    "garbage": "垃圾处理",
+    "parking": "停车",
+    "services": "现场服务"
+  }
+}

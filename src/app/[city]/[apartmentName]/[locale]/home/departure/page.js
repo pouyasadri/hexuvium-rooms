@@ -9,7 +9,6 @@ import StartTimePage from "@/components/pages/departurePage/pages/StartTimePage"
 import ProblemPage from "@/components/pages/departurePage/pages/ProblemPage";
 import BackButton from "@/components/BackButton";
 import CardsBackButton from "@/components/CardsBackButton";
-import {flatten} from "next/dist/shared/lib/flatten";
 import {useTranslations} from "next-intl";
 import {useParams} from "next/navigation";
 import {groq} from "next-sanity";

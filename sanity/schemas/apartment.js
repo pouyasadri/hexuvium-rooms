@@ -47,7 +47,12 @@ export default {
             title: "Address",
             fields: [
                 {name: "addressText", type: "string", title: "Exact address"},
-                {name: "addressLink", type: "string", title: "Google map lien"}
+                {name: "addressLink", type: "string", title: "Google map lien"},
+                {
+                    title: 'Video file',
+                    name: 'video',
+                    type: 'mux.video',
+                },
             ]
         },
         {
@@ -130,7 +135,14 @@ export default {
                     title: "signaler un problème"
                 }
             ]
-        }
+        },
+        {
+            name: 'privateLink',
+            title: 'Private Link',
+            type: 'url',
+            readOnly: true, // Admins can see the link but not edit it
+        },
+
 
     ]
 }

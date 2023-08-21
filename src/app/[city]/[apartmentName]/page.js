@@ -8,7 +8,7 @@ export default function Home({params}) {
             <div className="h-screen grid items-center justify-center place-items-center backdrop-blur-sm">
                 <img src={"/logo1.gif"} className={"max-md:h-64 h-80"} alt={"Hexuvium"}/>
                 <div>
-                    <Link href={"/en/" + params.city + "/" + params.apartmentName + "/home"}>
+                    <Link href={ params.apartmentName + "/en/home"}>
                         <div className="gap-1 m-5 ">
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -29,7 +29,7 @@ export default function Home({params}) {
 
                         </div>
                     </Link>
-                    <Link href={"/fr/" + params.city + "/" + params.apartmentName + "/home"}>
+                    <Link href={ params.apartmentName + "/fr/home"}>
                         <div className="gap-1 m-5">
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -48,25 +48,26 @@ export default function Home({params}) {
                             </AnimatePresence>
                         </div>
                     </Link>
-                    {/*<Link href={"/zh/" + params.city + "/" + params.apartmentName + "/home"}>*/}
-                        <div className="gap-1 m-5">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    initial={{y: 200, opacity: 0}}
-                                    animate={{y: 0, opacity: 1}}
-                                    exit={{y: -200, opacity: 0}}
-                                    transition={{duration: 0.4}}
-                                >
-                                    <div
-                                        className="rounded-full font-bold text-white bg-black bg-opacity-50 py-2.5 px-12">
-                                        <img width="48" height="48" className={"w-14 h-14 mx-auto my-0"}
-                                             src="https://img.icons8.com/color/96/china.png" alt="china"/> <p
-                                        className="text-neutral-50 text-center">中国人</p>
-                                    </div>
-                                </motion.div>
-                            </AnimatePresence>
-                        </div>
-                    {/*</Link>*/}
+                    <Link href={ params.apartmentName + "/zh/home"}>
+
+                    <div className="gap-1 m-5">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                initial={{y: 200, opacity: 0}}
+                                animate={{y: 0, opacity: 1}}
+                                exit={{y: -200, opacity: 0}}
+                                transition={{duration: 0.4}}
+                            >
+                                <div
+                                    className="rounded-full font-bold text-white bg-black bg-opacity-50 py-2.5 px-12">
+                                    <img width="48" height="48" className={"w-14 h-14 mx-auto my-0"}
+                                         src="https://img.icons8.com/color/96/china.png" alt="china"/> <p
+                                    className="text-neutral-50 text-center">中国人</p>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+                    </Link>
                 </div>
             </div>
         </main>
