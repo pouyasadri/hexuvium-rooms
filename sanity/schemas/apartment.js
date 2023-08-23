@@ -17,6 +17,11 @@ export default {
             title: "Nome de Appartement",
         },
         {
+            name: "reservationNumber",
+            type: "string",
+            title: "Numéro de réservation"
+        },
+        {
             name: "city",
             type: "reference",
             to: {type: 'city'},
@@ -135,12 +140,6 @@ export default {
                     title: "signaler un problème"
                 }
             ]
-        },
-        {
-            name: 'privateLink',
-            title: 'Private Link',
-            type: 'url',
-            readOnly: true, // Admins can see the link but not edit it
         },
 
 

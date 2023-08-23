@@ -1,4 +1,11 @@
 {
+  "reservation": {
+    "header": "Entrez votre numéro de réservation",
+    "placeholder": "Numéro de réservation",
+    "submit": "Envoyer",
+    "error": "Numéro de réservation incorrect. Veuillez entrer un numéro de réservation valide.",
+    "backToHome": "Retour à l'accueil"
+  },
   "index": {
     "wifi": "Code de Wifi",
     "keys": "clés",
@@ -7,6 +14,9 @@
     "departure": "Informations de départ",
     "phone": "Numéros de téléphone utiles",
     "info": "Informations générales"
+  },
+  "message": {
+    "header": "Vous avez un message de Hexevium"
   },
   "wifiPage": {
     "title": "Code Wi-Fi",

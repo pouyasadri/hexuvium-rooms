@@ -1,4 +1,11 @@
 {
+  "reservation": {
+    "header": "输入您的预订号码",
+    "placeholder": "预订号码",
+    "submit": "提交",
+    "error": "预订号码不正确。请输入有效的预订号码。",
+    "backToHome": "返回首页"
+  },
   "index": {
     "wifi": "无线网络",
     "keys": "钥匙",
@@ -7,6 +14,9 @@
     "departure": "离开信息",
     "phone": "有用电话号码",
     "info": "一般信息"
+  },
+  "message": {
+    "header": "您有一条来自 Hexevium 的消息"
   },
   "wifiPage": {
     "title": "无线网络",

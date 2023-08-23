@@ -1,7 +1,7 @@
 export default function WifiPageHeader({title}) {
     return (
         <div className={"mt-20"}>
-            <div className={"text-neutral-200 inline-flex px-2 py-4 bg-blue-200 bg-opacity-20 rounded-xl"}>
+            <div className={"text-white inline-flex px-2 py-4 bg-blue-200 bg-opacity-20 rounded-xl"}>
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                      className=" h-16 w-16  inline-block"

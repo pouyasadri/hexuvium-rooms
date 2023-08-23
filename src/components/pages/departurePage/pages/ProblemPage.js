@@ -11,9 +11,9 @@ export default function ProblemPage({isProblem, problem,text}) {
             <p className={"my-5 text-xl font-light"}>Information:</p>
             <div
                 className={"rounded-xl bg-white shadow-inner p-4 mb-5"}>
-                <p className={"text-center p-5"}>
+                <div className={"text-center p-5"}>
                     <PortableText  value={text}/>
-                </p>
+                </div>
             </div>
         </div>
     )

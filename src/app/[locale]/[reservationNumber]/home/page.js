@@ -10,66 +10,66 @@ import Header from "@/components/header/Header";
 import Link from "next/link";
 import {useTranslations} from 'next-intl';
 import {groq} from "next-sanity";
-import {client} from "../../../../../../sanity/lib/client";
+import {client} from "../../../../../sanity/lib/client";
 import {useEffect, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
 import {useParams} from "next/navigation";
+import Message from "@/components/message";
 
 
 export default function Home() {
-
+    const [isOpen, setOpen] = useState(true);
     const params = useParams()
-    const apartmentName = params.apartmentName;
-    let [cityName1, setCityName1] = useState(null);
+    const reservationNumber = params.reservationNumber;
     const [citySlug1, setCitySlug1] = useState(null);
+    const [message, setMessage] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
-            const query = groq`
-        *[_type == "apartment" && name == $apartmentName][0] {
-          city->
-        }
-      `;
-
             try {
-                const result = await client.fetch(query, {apartmentName: apartmentName});
+                const result = await client.fetch(
+                    `*[_type == "apartment" && reservationNumber == $reservationNumber][0]{
+          city->,
+          welcomeMessage
+        }`,
+                    {
+                        reservationNumber: reservationNumber,
+                    }
+                );
+
                 console.log("Fetched data:", result); // Log fetched data
                 const {city: {cityName}} = result;
-
+                const {city: {citySlug}} = result;
+                const {welcomeMessage} = result;
+                let citySlugData;
                 let cityNameData;
+                let messageData;
                 switch (params.locale) {
                     case "fr":
                         cityNameData = cityName.fr;
+                        citySlugData = citySlug.fr;
+                        messageData = welcomeMessage.fr;
                         break;
                     case "en":
                         cityNameData = cityName.en;
+                        citySlugData = citySlug.en;
+                        messageData = welcomeMessage.en;
+
                         break;
                     case "zh":
                         cityNameData = cityName.zh;
-                        break;
-                }
-                setCityName1(cityNameData);
-
-                const {city: {citySlug}} = result;
-                let citySlugData;
-                switch (params.locale) {
-                    case "fr":
-                        citySlugData = citySlug.fr;
-                        break;
-                    case "en":
-                        citySlugData = citySlug.en;
-                        break;
-                    case "zh":
                         citySlugData = citySlug.zh;
+                        messageData = welcomeMessage.zh;
+
                         break;
                 }
                 setCitySlug1(citySlugData);
+                setMessage(messageData);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
         fetchData(); // Invoke the fetchData function
-    }, [apartmentName]); // Add apartmentName to the dependency array
-
+    }, [reservationNumber]); // Add apartmentName to the dependency array
     const t = useTranslations('index');
     const openHandle = () => {
         setOpen(false);
@@ -89,9 +89,9 @@ export default function Home() {
                         delay: 0.3,
                     }}
                 >
-                    {/*<Message isopen={isOpen} openHandle={openHandle}/>*/}
-                    <Header city={cityName1} slug={citySlug1}/>
-                    <div className="grid grid-cols-4 max-md:grid-cols-2 gap-6">
+                    <Message isopen={isOpen} openHandle={openHandle} message={message}/>
+                    <Header slug={citySlug1}/>
+                    <div className="grid grid-cols-3 max-md:grid-cols-2 gap-6 max-w-[60%] mx-auto my-0 mt-5">
                         <Link href={"home/wifi-code"}>
                             <WifiCode title={t('wifi')}/>
                         </Link>
