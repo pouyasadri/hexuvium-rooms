@@ -86,7 +86,7 @@ export default function PhoneNumberPage() {
                                 delay: 0.5,
                                 ease: [0, 0.71, 0.2, 1.01]
                             }}
-                            className={"bg-neutral-200 max-md:px-10 px-20 w-screen rounded-t-xl z-10 h-[60%] "}>
+                            className={"bg-neutral-200 max-md:px-10 px-20 w-screen rounded-t-xl z-10 min-h-[60%] max-h-fit "}>
                             <p className={"text-neutral-700 font-semibold my-5 "}>{t('emergencyNumber')}</p>
                             <div
                                 className={"rounded-xl bg-white shadow-inner p-4 mb-5 px-20 max-md:px-5 flex justify-between items-center"}>

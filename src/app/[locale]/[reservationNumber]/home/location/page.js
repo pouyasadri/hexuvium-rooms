@@ -85,7 +85,7 @@ export default function LocationPage() {
                                 delay: 0.5,
                                 ease: [0, 0.71, 0.2, 1.01]
                             }}
-                            className={"bg-neutral-200 max-md:px-10 px-20 w-screen rounded-t-xl z-10 h-[70%] "}>
+                            className={"bg-neutral-200 max-md:px-10 px-20 w-screen rounded-t-xl z-10 min-h-[60%] max-h-fit"}>
                             <LocationPageDetails details={t('details')}/>
                             <Address address={t('address')} text={address} link={link}/>
                             <Map find={t('find')}/>

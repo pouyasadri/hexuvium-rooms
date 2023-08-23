@@ -96,7 +96,7 @@ export default function DigiCodePage() {
                                 delay: 0.5,
                                 ease: [0, 0.71, 0.2, 1.01]
                             }}
-                            className={"bg-neutral-200 px-20 w-screen rounded-t-xl z-10 h-[60%] "}>
+                            className={"bg-neutral-200 px-20 w-screen rounded-t-xl z-10 min-h-[60%] max-h-fit"}>
                             <DigiCodePageDetails details={t('details')}/>
                             <KeyPageInfo info={t('information')} text={data}/>
                         </motion.div>

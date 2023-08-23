@@ -90,7 +90,7 @@ export default function WifiPage() {
                                 delay: 0.5,
                                 ease: [0, 0.71, 0.2, 1.01]
                             }}
-                            className={"bg-neutral-200 px-20 w-screen rounded-t-xl z-10 h-[60%] "}>
+                            className={"bg-neutral-200 px-20 max-md:px-10 w-screen rounded-t-xl z-10 min-h-[60%] max-h-fit "}>
                             <WifiDetails details={t.raw('details')}/>
                             <WifiName wifiName={t('name')} name={wifiName}/>
                             <WifiKey copy={t('copy')} copied={t('copied')} password={t('key')} text={wifiPassword}/>
