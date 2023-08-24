@@ -76,7 +76,7 @@ export default function Home() {
     return (
 
 
-        <div className="h-screen grid items-center justify-center place-items-center backdrop-blur-sm">
+        <div className="min-h-screen max-h-fit grid items-center justify-center place-items-center backdrop-blur-sm">
             <AnimatePresence mode={"wait"}>
                 <motion.div
                     key={"main"}

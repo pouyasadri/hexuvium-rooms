@@ -42,7 +42,7 @@ export default function PhoneNumberPage() {
     return (
         <div className={"backdrop-blur-sm"}>
             <BackButton/>
-            <div className="h-screen flex flex-col items-center justify-between">
+            <div className="min-h-screen max-h-fit flex flex-col items-center justify-between">
                 {isLoading ? (
                     <div className={"flex text-4xl text-white text-center"}>
                         <svg

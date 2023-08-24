@@ -31,7 +31,7 @@ export default async function RootLayout({children, params: {locale, reservation
         <html lang={locale}>
         <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={language}>
-            <main className="bg-cover h-screen " style={{ backgroundImage: `url('${backgroundImageUrl}')` }}>
+            <main className="bg-cover min-h-screen max-h-fit" style={{ backgroundImage: `url('${backgroundImageUrl}')` }}>
                 {children}
             </main>
         </NextIntlClientProvider>

@@ -1,7 +1,5 @@
 import Hls from "hls.js";
 import {useEffect, useRef, useState} from "react";
-import MuxPlayer from '@mux/mux-player-react';
-import {client} from "../../../../sanity/lib/client";
 import {useParams} from "next/navigation";
 
 export default function Map({find,playbackId}) {
