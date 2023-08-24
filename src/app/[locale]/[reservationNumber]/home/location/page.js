@@ -16,6 +16,7 @@ export default function LocationPage() {
     const [link, setLink] = useState(null);
     const [isLoading, setLoading] = useState(true);
     const reservationNumber = params.reservationNumber;
+    const [playbackId, setPlaybackId] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -30,6 +31,33 @@ export default function LocationPage() {
                 const {address} = result
                 setLink(address['addressLink']);
                 setAddress(address['addressText']);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+
+        };
+        fetchData(); // Invoke the fetchData function
+    }, [reservationNumber]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await client.fetch(
+                    `*[_type == "apartment" && reservationNumber == $reservationNumber][0]{
+  address{
+    video{
+      asset->{
+        playbackId
+      }
+    }
+  }
+}`,
+                    {
+                        reservationNumber: reservationNumber,
+                    }
+                );
+
+                console.log("Fetched data:", result.address.video.asset.playbackId); // Log fetched data
+                setPlaybackId(result.address.video.asset.playbackId);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -88,7 +116,7 @@ export default function LocationPage() {
                             className={"bg-neutral-200 max-md:px-10 px-20 w-screen rounded-t-xl z-10 min-h-[60%] max-h-fit"}>
                             <LocationPageDetails details={t('details')}/>
                             <Address address={t('address')} text={address} link={link}/>
-                            <Map find={t('find')}/>
+                            <Map find={t('find')} playbackId={playbackId}/>
                         </motion.div>
                     </>)}
             </div>

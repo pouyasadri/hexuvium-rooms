@@ -28,9 +28,18 @@ export default function ReservationPage({params: {locale}}) {
             // Reservation number is correct, navigate to the appropriate URL
             console.log(apartmentData.reservationNumber);
             if (apartmentData.reservationNumber === reservationNumber) {
+                toast.success(t('success'), {
+                    position: "top-left",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
                 router.replace(`/${locale}/${reservationNumber}/home`);
             }
-            //router.push(`/${apartmentSlug}`); // Replace with your actual route
         } else {
             // Reservation number is incorrect, show a pop-up notification
             toast.error(t('error'), {

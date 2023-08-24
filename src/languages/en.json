@@ -4,6 +4,7 @@
     "placeholder": "Reservation Number",
     "submit": "Submit",
     "error" : "Incorrect reservation number. Please enter a valid reservation number.",
+    "success": "You'll be redirected to the home page.",
     "backToHome": "Back to Home"
   },
   "index": {

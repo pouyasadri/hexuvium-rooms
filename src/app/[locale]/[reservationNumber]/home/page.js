@@ -9,7 +9,6 @@ import DepartureInformation from "@/components/cards/departureInformation/Depart
 import Header from "@/components/header/Header";
 import Link from "next/link";
 import {useTranslations} from 'next-intl';
-import {groq} from "next-sanity";
 import {client} from "../../../../../sanity/lib/client";
 import {useEffect, useState} from "react";
 import {AnimatePresence, motion} from "framer-motion";
@@ -91,7 +90,8 @@ export default function Home() {
                 >
                     <Message isopen={isOpen} openHandle={openHandle} message={message}/>
                     <Header slug={citySlug1}/>
-                    <div className="grid grid-cols-3 max-md:grid-cols-2 gap-6 max-w-[60%] mx-auto my-0 mt-5">
+                    <div
+                        className={params.locale === "zh" ? "grid grid-cols-3 max-md:grid-cols-2 gap-6 mx-auto my-0 mt-5" : "grid grid-cols-3 max-md:grid-cols-2 gap-6 w-[60%] mx-auto my-0 mt-5"}>
                         <Link href={"home/wifi-code"}>
                             <WifiCode title={t('wifi')}/>
                         </Link>

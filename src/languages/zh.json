@@ -4,6 +4,7 @@
     "placeholder": "预订号码",
     "submit": "提交",
     "error": "预订号码不正确。请输入有效的预订号码。",
+    "success": "您将被重定向到主页。",
     "backToHome": "返回首页"
   },
   "index": {

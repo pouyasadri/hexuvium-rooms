@@ -1,6 +1,6 @@
 export default function Location({title}) {
     return (
-        <div className="flex h-full flex-col gap-1 cursor-pointer w-full">
+        <div className="flex h-full flex-col gap-1 cursor-pointer w-fit">
             <div className="flex flex-col h-full w-30 m-auto bg-gray-500 bg-opacity-40 p-4 gap-2 rounded border-1 border-neutral-500">
                 <div className="w-full mx-auto my-0 flex items-center justify-center">
                     <div className="text-neutral-300 bg-gradient-to-l from-gray-500 via-gray-600 to-gray-700 rounded-full p-5">
@@ -20,7 +20,7 @@ export default function Location({title}) {
 
                     </div>
                 </div>
-                <p className="text-neutral-200 max-md:text-sm text-center">{title}</p>
+                <p className="text-neutral-200 max-md:text-xs text-center">{title}</p>
 
             </div>
         </div>

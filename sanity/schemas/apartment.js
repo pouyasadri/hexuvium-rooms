@@ -76,11 +76,6 @@ export default {
                     title: "Règles des animaux"
                 },
                 {
-                    name: "rules",
-                    type: "localeBlock",
-                    title: "Règles de procédure",
-                },
-                {
                     name: "garbage",
                     type: "localeBlock",
                     title: "les déchets",
@@ -93,7 +88,7 @@ export default {
                 {
                     name: "service",
                     type: "localeBlock",
-                    title: "Services",
+                    title: "Service sur site",
                 },
             ]
         },
@@ -103,11 +98,6 @@ export default {
             title: "informations d'arrivée",
             fields: [
                 {
-                    name: "recallInformation",
-                    type: "localeBlock",
-                    title: "rappel Information"
-                },
-                {
                     name: "arrivalTime",
                     type: "localeBlock",
                     title: "heure d'arrivée"
@@ -116,11 +106,6 @@ export default {
                     name: "internalRules",
                     type: "localeBlock",
                     title: "Régulations internes"
-                },
-                {
-                    name: "keys",
-                    type: "localeBlock",
-                    title: "les clés"
                 }
             ]
         },
